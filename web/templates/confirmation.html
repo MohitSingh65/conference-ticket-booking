@@ -1,0 +1,9 @@
+{{ define "confirmation.html" }}
+<section class="container">
+  <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+  <link rel="stylesheet" href="/static/css/styles.css">
+    <h2>Thank You!</h2>
+    <p>Your ticket has been booked. Check your email for confirmation.</p>
+    <button hx-get="/" hx-target="#main-content" class="btn">Back to Home</button>
+</section>
+{{ end }}

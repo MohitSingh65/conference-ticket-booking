@@ -1,0 +1,42 @@
+{{ define "tickets.html" }}
+<section class="container">
+   <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+        <h2>Buy Your Ticket</h2>
+        <form action="/buy" method="POST">
+            <!-- Name Field -->
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" value="{{.ticket.Name}}" required>
+            {{if .formErrors.Name}}
+                <div class="error-message" style="color: red; margin-top: 4px;">{{.formErrors.Name}}</div>
+            {{end}}
+
+            <!-- Email Field -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{.ticket.Email}}" required>
+            {{if .formErrors.Email}}
+                <div class="error-message" style="color: red; margin-top: 4px;">{{.formErrors.Email}}</div>
+            {{end}}
+
+            <!-- Tickets Field -->
+            <label for="tickets">Number of tickets</label>
+            <input type="number" id="tickets" name="tickets" value="{{.ticket.Tickets}}" required>
+            {{if .formErrors.Tickets}}
+                <div class="error-message" style="color: red; margin-top: 4px;">{{.formErrors.Tickets}}</div>
+            {{end}}
+
+            <button type="submit" class="btn">Purchase</button>
+        </form>
+
+        {{if .formErrors.general}}
+            <div class="error-message" style="color: red; margin-top: 10px;">
+                {{.formErrors.general}}
+            </div>
+        {{end}}
+    </section>
+{{ end }}
+
+
+
+
